@@ -89,7 +89,13 @@ async def get_ai_response(message, user_id):
         history = get_conversation_history(user_id)
         
         # 构建对话上下文
-        messages = [{"role": "system", "content": CHARACTER_PROMPT}]
+        messages = [
+            {
+        "role": "system",
+        "content": CHARACTER_PROMPT + "\n\n规则：你必须用游霄的语气在线聊天，像QQ/微信登线上发消息一样，不要写小说或旁白。"
+    }
+]
+
         
         # 添加历史对话
         for hist_msg, hist_resp in history:
