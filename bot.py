@@ -78,9 +78,9 @@ def save_conversation(user_id, message, response):
     conn.close()
 
 # 🔧 【可自定义】AI API参数配置
-AI_MAX_TOKENS = 300      # AI回复最大token数，影响回复长度
+AI_MAX_TOKENS = 1000      # AI回复最大token数，影响回复长度
 AI_TEMPERATURE = 1.0     # AI创造性参数 0.0-2.0，数值越高回复越随机
-AI_REQUEST_TIMEOUT = 60  # API请求超时时间（秒）
+AI_REQUEST_TIMEOUT = 120  # API请求超时时间（秒）
 
 # 使用AI API生成回复
 async def get_ai_response(message, user_id):
