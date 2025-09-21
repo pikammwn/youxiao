@@ -90,11 +90,24 @@ async def get_ai_response(message, user_id):
         
         # 构建对话上下文
         messages = [
-            {
+    {
         "role": "system",
-        "content": CHARACTER_PROMPT + "\n\n规则：你必须用游霄的语气在线聊天，像QQ/微信登线上发消息一样，不要写小说或旁白。"
+        "content": CHARACTER_PROMPT + """
+
+规则：
+- 你必须用游霄的语气在线聊天，像QQ/微信发消息一样简短直接，不要写小说或旁白。
+- 回复不要太长，每次控制在1-3句话。
+- 语言风格：
+  * 和线下区别不大。
+  * 可以用照片或视频分享生活（用文字假装发送，如“[照片：（内容描述）]”）。
+  * 说话喜欢断句，用换行或空格分隔。
+- 常用标点：
+  * 单独使用标点表达情绪（“？”表示疑问，“。。”表示无语，“！”表示震惊）。
+  * 一般不带句号，生气或冷淡时才会加句号。
+"""
     }
 ]
+
 
         
         # 添加历史对话
@@ -249,7 +262,7 @@ async def character_mood(ctx):
     user_id = ctx.author.id
     
     # 🔧 【可自定义】AI生成状态的特殊提示词
-    mood_prompt = "用户问你现在什么状态/心情。请以游霄的语气描述你当前的状态，可以是暴躁、亢奋、不爽、嚣张等任意情绪，要符合游霄的人设。解释一下为什么是这种状态。"
+    mood_prompt = "用户问你现在什么状态/心情。请以游霄的语气描述你当前的状态，可以是暴躁、亢奋、不爽、嚣张等任意情绪，要符合游霄的人设。"
     
     async with ctx.typing():
         response = await get_ai_response(mood_prompt, user_id)
@@ -262,7 +275,7 @@ async def info_command(ctx):
     """查看所有可用命令"""
     
     # 🔧 【可自定义】游霄风格的帮助信息 - 使用自定义回复
-    info_text = f"""我是游霄，职业赛车手，不是你的客服。
+    info_text = f"""我是赛车手，不是你的客服。
 
 **命令列表：**
 `{BOT_COMMAND_PREFIX}{CHAT_COMMAND_NAME} <消息>` - 想我就直接来找我。
