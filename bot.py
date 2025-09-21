@@ -23,7 +23,7 @@ except ImportError:
 
 # 🔧 【可自定义】Bot基础设置
 BOT_COMMAND_PREFIX = '!'  # 命令前缀，可改为其他符号如 '?' '$' 等
-CHAT_HISTORY_LIMIT = 10   # AI能看到的对话历史条数，建议5-20条
+CHAT_HISTORY_LIMIT = 15   # AI能看到的对话历史条数，建议5-20条
 CONVERSATION_TIMEOUT = 3600  # 对话超时时间（秒），超过此时间清理旧对话
 CHAT_COMMAND_NAME = 'c'    # 聊天命令名，可改为其他字母
 
@@ -78,7 +78,7 @@ def save_conversation(user_id, message, response):
     conn.close()
 
 # 🔧 【可自定义】AI API参数配置
-AI_MAX_TOKENS = 1000      # AI回复最大token数，影响回复长度
+AI_MAX_TOKENS = 3000      # AI回复最大token数，影响回复长度
 AI_TEMPERATURE = 1.0     # AI创造性参数 0.0-2.0，数值越高回复越随机
 AI_REQUEST_TIMEOUT = 120  # API请求超时时间（秒）
 
