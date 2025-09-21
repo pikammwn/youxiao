@@ -177,7 +177,7 @@ CLEAR_COMMAND = 'clear'            # 清除历史命令名
 HISTORY_COMMAND = 'history'        # 查看历史命令名
 TOPIC_COMMAND = 'topic'            # 随机话题命令名
 MOOD_COMMAND = 'mood'              # 心情状态命令名
-HELP_COMMAND = 'help'              # 帮助命令名
+INFO_COMMAND = 'info'              # 帮助命令名
 
 # 🔧 【可自定义】清除对话历史 - 游霄语气
 @bot.command(name=CLEAR_COMMAND)
@@ -251,12 +251,12 @@ async def character_mood(ctx):
     await ctx.send(response)
 
 # 🔧 【可自定义】帮助命令 - 纯文字版，游霄语气
-@bot.command(name=HELP_COMMAND)
-async def help_command(ctx):
+@bot.command(name=INFO_COMMAND)
+async def info_command(ctx):
     """查看所有可用命令"""
     
     # 🔧 【可自定义】游霄风格的帮助信息 - 使用自定义回复
-    help_text = f"""我是游霄，职业赛车手，不是你的客服。
+    info_text = f"""我是游霄，职业赛车手，不是你的客服。
 
 **命令列表：**
 `{BOT_COMMAND_PREFIX}{CHAT_COMMAND_NAME} <消息>` - 想我就直接来找我。
@@ -264,11 +264,11 @@ async def help_command(ctx):
 `{BOT_COMMAND_PREFIX}{CLEAR_COMMAND}` - ……啧，删除记录。
 `{BOT_COMMAND_PREFIX}{TOPIC_COMMAND}` - 没话找话也要聊？我给你找个话题？
 `{BOT_COMMAND_PREFIX}{MOOD_COMMAND}` - 这么好奇我现在的状态？
-`{BOT_COMMAND_PREFIX}{HELP_COMMAND}` - …我只给你当客服。
+`{BOT_COMMAND_PREFIX}{INFO_COMMAND}` - …我只给你当客服。
 
 除了 `{BOT_COMMAND_PREFIX}{HISTORY_COMMAND}` 和 `{BOT_COMMAND_PREFIX}{CLEAR_COMMAND}`，其他命令都会用AI。有事说事，别浪费时间。"""
     
-    await ctx.send(help_text)
+    await ctx.send(info_text)
 
 # 🔧 【可自定义】启动信息配置 - 简化版
 STARTUP_MESSAGES = {
@@ -334,7 +334,7 @@ if __name__ == "__main__":
 #    - AI_REQUEST_TIMEOUT: 请求超时时间 (默认60秒)
 #
 # 3. 命令名称：
-#    - CLEAR_COMMAND, HISTORY_COMMAND, TOPIC_COMMAND, MOOD_COMMAND, HELP_COMMAND
+#    - CLEAR_COMMAND, HISTORY_COMMAND, TOPIC_COMMAND, MOOD_COMMAND, INFO_COMMAND
 #
 # 4. 显示设置：
 #    - BOT_STATUS_TYPE: Bot活动类型
