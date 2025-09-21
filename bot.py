@@ -135,7 +135,7 @@ async def get_ai_response(message, user_id):
         return "草，系统卡住了，喊人来修修。"
 
 # 🔧 【可自定义】Bot状态配置 - 简化版
-BOT_STATUS_TYPE = discord.ActivityType.racing  # Bot活动类型
+BOT_STATUS_TYPE = discord.ActivityType.competing  # Bot活动类型
 BOT_STATUS_TEXT = "备赛中，闲人勿扰"                     # Bot显示的状态文字，简洁版
 
 @bot.event
