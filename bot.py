@@ -25,7 +25,7 @@ except ImportError:
 BOT_COMMAND_PREFIX = '!'  # 命令前缀，可改为其他符号如 '?' '$' 等
 CHAT_HISTORY_LIMIT = 15   # AI能看到的对话历史条数，建议5-20条
 CONVERSATION_TIMEOUT = 3600  # 对话超时时间（秒），超过此时间清理旧对话
-CHAT_COMMAND_NAME = 'c游霄'    # 聊天命令名，可改为其他字母
+CHAT_COMMAND_NAME = '游霄'    # 聊天命令名，可改为其他字母
 
 # 🔧 【可自定义】创建bot实例
 intents = discord.Intents.default()
@@ -226,7 +226,7 @@ async def show_history(ctx):
     
     if not history:
         # 🔧 【可自定义】游霄风格的无历史提示
-        await ctx.send("跟没跟我说过话都忘了？除了我还想找谁？用 `!c游霄` 开始说话。")
+        await ctx.send("跟没跟我说过话都忘了？除了我还想找谁？用 `!游霄` 开始说话。")
         return
     
     # 🔧 【可自定义】纯文字格式的历史记录
