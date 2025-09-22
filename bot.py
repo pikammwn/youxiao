@@ -25,7 +25,7 @@ except ImportError:
 BOT_COMMAND_PREFIX = '!'  # 命令前缀，可改为其他符号如 '?' '$' 等
 CHAT_HISTORY_LIMIT = 15   # AI能看到的对话历史条数，建议5-20条
 CONVERSATION_TIMEOUT = 3600  # 对话超时时间（秒），超过此时间清理旧对话
-CHAT_COMMAND_NAME = 'c'    # 聊天命令名，可改为其他字母
+CHAT_COMMAND_NAME = 'c游霄'    # 聊天命令名，可改为其他字母
 
 # 🔧 【可自定义】创建bot实例
 intents = discord.Intents.default()
@@ -34,7 +34,7 @@ intents.guilds = True
 bot = commands.Bot(command_prefix=BOT_COMMAND_PREFIX, intents=intents)
 
 # 🔧 【可自定义】数据库配置
-DATABASE_NAME = 'chat_history.db'  # 数据库文件名，可修改
+DATABASE_NAME = 'chat_history_yx.db'  # 数据库文件名，可修改
 
 # 初始化数据库
 def init_database():
@@ -192,11 +192,11 @@ async def chat_command(ctx, *, message):
     await ctx.send(response)
 
 # 🔧 【可自定义】其他命令配置
-CLEAR_COMMAND = 'clear'            # 清除历史命令名
-HISTORY_COMMAND = 'history'        # 查看历史命令名
-TOPIC_COMMAND = 'topic'            # 随机话题命令名
-MOOD_COMMAND = 'mood'              # 心情状态命令名
-INFO_COMMAND = 'info'              # 帮助命令名
+CLEAR_COMMAND = 'clear游霄'            # 清除历史命令名
+HISTORY_COMMAND = 'history游霄'        # 查看历史命令名
+TOPIC_COMMAND = 'topic游霄'            # 随机话题命令名
+MOOD_COMMAND = 'mood游霄'              # 心情状态命令名
+INFO_COMMAND = 'info游霄'              # 帮助命令名
 
 # 🔧 【可自定义】清除对话历史 - 游霄语气
 @bot.command(name=CLEAR_COMMAND)
@@ -226,7 +226,7 @@ async def show_history(ctx):
     
     if not history:
         # 🔧 【可自定义】游霄风格的无历史提示
-        await ctx.send("跟没跟我说过话都忘了？除了我还想找谁？用 `!c` 开始说话。")
+        await ctx.send("跟没跟我说过话都忘了？除了我还想找谁？用 `!c游霄` 开始说话。")
         return
     
     # 🔧 【可自定义】纯文字格式的历史记录
@@ -284,8 +284,7 @@ async def info_command(ctx):
 `{BOT_COMMAND_PREFIX}{TOPIC_COMMAND}` - 没话找话也要聊？我给你找个话题？
 `{BOT_COMMAND_PREFIX}{MOOD_COMMAND}` - 这么好奇我现在的状态？
 `{BOT_COMMAND_PREFIX}{INFO_COMMAND}` - …我只给你当客服。
-
-除了 `{BOT_COMMAND_PREFIX}{HISTORY_COMMAND}` 和 `{BOT_COMMAND_PREFIX}{CLEAR_COMMAND}`，其他命令都会用AI。有事说事，别浪费时间。"""
+"""
     
     await ctx.send(info_text)
 
